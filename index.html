@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCO Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="base.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item1"></div>
+        <div class="grid-item2"></div>
+    </div>
+    <div class="box-login">
+        <img src="./img/logo_COCOChat.png" id="main-logo" alt="logo_COCOChat">
+        <form class="form-login">
+            <h1>Login here</h1>
+            <p>Username</p>
+            <input type="text" class="input-value usr-pass" id="username" placeholder="Enter your username...">
+            <p>Password</p>
+            <input type="password" class="input-value usr-pass" id="password" placeholder="Enter your password...">
+            <div class="" id="box-checkbox">
+                <input type="checkbox" id="checkbox">
+                <span id="keep-me">Keep me logged in</span>
+            </div>
+            <a href="#" id="forgot-password">Forgot password?</a>
+            <input type="submit" class="input-value" id="submit" value="login">
+            <p id="create-account">Don't have an account yet? <a href="#">Sign up</a></p>
+            <div class="break-box">
+                <div class="content" style="text-transform:uppercase;margin-top:20px">Login an another</div>
+            </div>
+            <div class="login-with-google">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png">
+                <a>Login with Google</a>
+            </div>
+        </form>
+        <script>
+            document.getElementById("submit").addEventListener("click", onClickSubmit);
+            document.getElementById("keep-me").addEventListener("click", onClickKeepMe);
+            var checkbox = document.getElementById("checkbox");
+
+            function onClickSubmit() {
+                var usrPass = document.getElementsByClassName("usr-pass");
+                usrPass[0].value = usrPass[1].value = '';
+                checkbox.checked = false;
+            }
+
+            function onClickKeepMe() {
+                if (!checkbox.checked) {
+                    checkbox.checked = true;
+                } else {
+                    checkbox.checked = false;
+                }
+            }
+        </script>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.19.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.19.1/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+</body>
+
+</html>
