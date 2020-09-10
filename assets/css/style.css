@@ -1,17 +1,13 @@
-    .grid-container {
-        position: absolute;
-        display: grid;
-        grid-template-columns: auto auto;
-        height: 100%;
-        width: 100%;
-    }
-    
-    .grid-item1 {
-        background-color: var(--blackblue-color);
-    }
-    
-    .grid-item2 {
+    .login__bg {
+        height: 100vh;
+        width: 100vw;
         background-color: var(--primary-color);
+    }
+    
+    .login__bg--child {
+        height: 100%;
+        width: 50%;
+        background-color: var(--blackblue-color);
     }
     
     .box-login {
@@ -194,7 +190,6 @@
     
     .login-with-google:hover {
         border: 2px solid var(--blackblue-color);
-        box-sizing: border-box;
     }
     
     .login-with-google a:hover {
