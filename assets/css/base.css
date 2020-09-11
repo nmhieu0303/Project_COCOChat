@@ -3,6 +3,8 @@
     --blackblue-color: #07689F;
     --secondblue-color: #40A8C4;
     --thirtblue-color: #A2D5F2;
+    --primary-gray-color: #e8e8e8;
+    --bg-body-color: #f0f2f5;
 }
 
 * {
@@ -15,4 +17,29 @@ body {
     margin: 0;
     padding: 0;
     user-select: none;
+    background: var(--bg-body-color);
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.bg-body {
+    background: var(--bg-body-color);
+}
+
+.textarea {
+    display: block;
+    overflow: hidden;
+    height: auto;
+    min-height: 40px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: inherit;
 }
