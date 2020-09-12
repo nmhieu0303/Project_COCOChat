@@ -199,12 +199,13 @@
         
         #header {
             z-index: 99999;
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             padding: 0.8rem 0;
             width: 100%;
             background: #fff;
+            box-shadow: 0 0 13px 1px #5350509c;
         }
         
         img.header__logo--img {
@@ -319,20 +320,37 @@
         }
         
         .newfeed__post--attachment-item a {
+            position: relative;
             font-size: 2rem;
             margin-right: 1.5rem;
             color: var(--primary-gray-color);
+            transition: 0.4s;
         }
         
         .newfeed__post--attachment-item.active>a,
-        .newfeed__post--attachment-item:hover a {
+        .newfeed__post--attachment-item a i:hover a {
             color: var(--blackblue-color);
         }
         
-        a.btn.btn-post {
+        .newfeed__post--attachment-item input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .newfeed__post .btn-post {
             border: 2px solid var(--blackblue-color);
             color: var(--blackblue-color);
             font-weight: bold;
             padding: 0.2rem 1.5rem;
             border-radius: 20px;
+            transition: all 0.4s;
+        }
+        
+        .newfeed__post .btn-post:hover {
+            background-color: var(--blackblue-color);
+            color: var(--white);
         }
