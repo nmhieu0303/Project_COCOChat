@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <!-- js -->
+    <link rel="stylesheet" href="/assets/js/main.js">
+
+
 </head>
 
 <body class="bg-body">
@@ -44,9 +48,9 @@
                             <a href="#" class="header__nav--item">
                                 <i class="fas fa-cogs"></i>
                             </a>
-                            <a href="#" class="header__nav--custom">
-                                <img src="./assets/img/avatar.jpg" alt="" class="nav__custom--img">
-                                <span class="nav__custom--name">Last Name</span>
+                            <a href="#" class="header__nav--user">
+                                <img src="./assets/img/avatar.jpg" alt="" class="nav__user--img">
+                                <span class="nav__user--name">Last Name</span>
                             </a>
                         </nav>
                     </div>
@@ -57,19 +61,19 @@
     <section id="content" class="container-fluid">
         <div class="container">
             <div class="col-md-8">
-                <div class="content__newfeeds ">
-                    <div class="newfeed__post">
+                <div class="content__newfeeds">
+                    <div class="newfeed__item newfeed__post">
                         <div class="d-flex">
-                            <div class="newfeed__post--img">
+                            <a href="#" class="newfeed__item--img">
                                 <img class="newfeed--avatar--img" src="./assets/img/avatar.jpg" alt="">
-                            </div>
+                            </a>
                             <span class="textarea newfeed__post--input" role="textbox" contenteditable></span>
                         </div>
                         <div class="d-flex justify-content-around align-items-center">
                             <ul class="newfeed__post--attachment-selector">
                                 <li class="newfeed__post--attachment-item ">
                                     <a href href="#"><i class="far fa-image "></i>
-                                        <input type="file" accept="image/*" title="Chọn file để tải lên">
+                                        <input type="file" accept="image/*" title="Chọn file để tải lên" style="cursor: pointer;">
                                     </a>
                                 </li>
                                 <li class="newfeed__post--attachment-item">
@@ -85,6 +89,60 @@
                             <a href="#" class=" btn-post">POST</a>
                         </div>
                     </div>
+
+                    <div class="newfeed__item">
+                        <div class="d-flex ">
+                            <a href="#" class="newfeed__item--img">
+                                <img class="newfeed--avatar--img" src="./assets/img/avatar.jpg" alt="">
+                            </a>
+
+                            <div class="newfeed__item--info">
+                                <div>
+                                    <a href="#" class="info--username">Nguyễn Minh Hiếu</a>
+                                    <a class="newfeed__item--more">
+                                        <i class="fas fa-angle-down"></i>
+                                    </a>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <span class="info--time">15 phút</span>
+                                    <div class="info--separator">-</div>
+                                    <a href="#" class="info--privacy">
+                                        <i class="fas fa-globe-americas"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="newfeed__item--caption">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa earum ratione ducimus amet pariatur, sapiente voluptas corrupti cumque, vel, et maxime assumenda repudiandae https://curnonwatch.com/ corporis optio eveniet vitae labore libero vero nobis
+                            eius repellendus? Voluptas corrupti et id?
+                        </p>
+                        <div class="newfeed__item--media">
+                            <img src="./assets/img/avatar.jpg" alt="" class="newfeed__item--img">
+                        </div>
+
+                        <div class="newfeed__item--interactives">
+                            <div class="interactives__item">
+                                <div class="interactives__item--icon" onclick="like(this,'#07689F')">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                                <span class="interactives__item--number">500</span>
+                            </div>
+                            <div id="interactives__item--comment" class="interactives__item">
+                                <a class="interactives__item--icon">
+                                    <i class="fas fa-comment-alt"></i>
+                                </a>
+                                <span class="interactives__item--number">500</span>
+                            </div>
+                            <div id="interactives__item--share" class="interactives__item">
+                                <a class="interactives__item--icon">
+                                    <i class="fas fa-share-alt"></i>
+                                </a>
+                                <span class="interactives__item--number">500</span>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -96,7 +154,21 @@
         </div>
 
     </section>
+    <script>
+        function like(element, color) {
 
+            // element.innerHTML = '<i class="fas fa-heart"></i>'
+            // element.style.color = color;
+
+            if (!element.classList.contains("interactives__item--liked")) {
+                element.innerHTML = '<i class="fas fa-heart"></i>'
+                element.style.color = color;
+            } else {
+                element.innerHTML = '<i class="far fa-heart"></i>'
+                element.style.color = '#e8e8e8';
+            }
+        }
+    </script>
 </body>
 
 </html>
