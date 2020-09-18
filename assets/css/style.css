@@ -199,12 +199,13 @@
         
         #header {
             z-index: 99999;
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             padding: 0.8rem 0;
             width: 100%;
             background: #fff;
+            box-shadow: 0 0 13px 1px #5350509c;
         }
         
         img.header__logo--img {
@@ -264,13 +265,13 @@
             color: var(--blackblue-color);
         }
         
-        .header__nav .nav__custom--img {
+        .header__nav .nav__user--img {
             width: 1.9rem;
             border: 2px solid var(--primary-color);
             border-radius: 50%;
         }
         
-        .header__nav .nav__custom--name {
+        .header__nav .nav__user--name {
             font-weight: 600;
             color: #616166;
         }
@@ -285,13 +286,22 @@
             padding: 1rem 1rem 0;
         }
         
-        .newfeed__post {
+        .newfeed__item {
+            position: relative;
             width: 100%;
             padding: 1.5rem;
             background: var(--white);
             margin-bottom: 0.5rem;
             border-radius: 10px;
             box-shadow: 0 0 9px 1px #6e6a6a8c;
+        }
+        
+        .newfeed__item--more {
+            position: absolute;
+            right: 0;
+            padding-right: 10px;
+            font-size: 1.3rem;
+            transform: translate(-50%, -15%);
         }
         
         .content__newfeeds .newfeed--avatar--img {
@@ -319,20 +329,123 @@
         }
         
         .newfeed__post--attachment-item a {
+            position: relative;
             font-size: 2rem;
             margin-right: 1.5rem;
             color: var(--primary-gray-color);
+            transition: 0.4s;
         }
         
         .newfeed__post--attachment-item.active>a,
-        .newfeed__post--attachment-item:hover a {
+        .newfeed__post--attachment-item a i:hover a {
             color: var(--blackblue-color);
         }
         
-        a.btn.btn-post {
+        .newfeed__post--attachment-item input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .newfeed__post .btn-post {
             border: 2px solid var(--blackblue-color);
             color: var(--blackblue-color);
             font-weight: bold;
             padding: 0.2rem 1.5rem;
             border-radius: 20px;
+            transition: all 0.4s;
+        }
+        
+        .newfeed__post .btn-post:hover {
+            background-color: var(--blackblue-color);
+            color: var(--white);
+        }
+        
+        .newfeed__item--info {
+            position: relative;
+            flex: 1;
+            padding-left: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .newfeed__item--more {
+            position: absolute;
+            right: 0;
+            font-size: 1.3rem;
+            color: var(--primary-text-color);
+            transform: translateY(-10%);
+        }
+        
+        .newfeed__item--info .info--username {
+            color: var(--blackblue-color);
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        .newfeed__item--info .info--time,
+        .newfeed__item--info .info--separator,
+        .newfeed__item--info .info--privacy {
+            font-size: 0.8rem;
+            color: var(--primary-text-color);
+        }
+        
+        .newfeed__item--info .info--separator {
+            margin: 0 0.25rem;
+        }
+        
+        .newfeed__item--caption {
+            margin: 0.5rem 0 0;
+        }
+        
+        .newfeed__item--media {
+            margin: 1rem -1.5rem 0;
+        }
+        
+        img.newfeed__item--img {
+            width: 100%;
+        }
+        
+        .newfeed__item--interactives {
+            margin-top: 1rem;
+        }
+        
+        .interactives__item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20%;
+            padding: 0.5rem 0;
+            border-radius: 20px;
+            transition: 0.4s;
+        }
+        
+        .interactives__item a:hover i {
+            color: var(--black-color);
+        }
+        
+        .interactives__item--icon:active .liked {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .interactives__item--icon {
+            color: var(--primary-gray-color);
+        }
+        
+        .interactives__item--icon i {
+            font-size: 2rem;
+            transition: 0.4s;
+        }
+        
+        .interactives__item--icon {
+            margin-right: 0.5rem;
+        }
+        
+        .interactives__item--icon .liked {
+            margin-left: -13%;
+            transition: all 0.4s;
         }
