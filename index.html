@@ -41,11 +41,16 @@
             document.getElementById("submit").addEventListener("click", onClickSubmit);
             document.getElementById("keep-me").addEventListener("click", onClickKeepMe);
             var checkbox = document.getElementById("checkbox");
+            var password = document.getElementById("password");
+            var username = document.getElementById("username");
 
             function onClickSubmit() {
                 var usrPass = document.getElementsByClassName("usr-pass");
                 usrPass[0].value = usrPass[1].value = '';
                 checkbox.checked = false;
+                if (username.value.toString() == 'admin' || password.value.toString() == 'admin') {
+                    window.location.replace('http://toidicode.com');
+                }
             }
 
             function onClickKeepMe() {
