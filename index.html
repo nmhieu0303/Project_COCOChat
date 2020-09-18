@@ -27,7 +27,7 @@
             </div>
             <a href="#" id="forgot-password">Forgot password?</a>
             <input type="submit" class="input-value" id="submit" value="login">
-            <p id="create-account">Don't have an account yet? <a href="#">Sign up</a></p>
+            <p id="create-account">Don't have an account yet? <a href="./register.html">Sign up</a></p>
             <div class="break-box">
                 <div class="content" style="text-transform:uppercase;margin-top:20px">Login an another</div>
             </div>
@@ -37,14 +37,19 @@
             </div>
         </form>
         <script>
-            document.getElementById("submit").addEventListener("lick", onClickSubmit);
+            document.getElementById("submit").addEventListener("click", onClickSubmit);
             document.getElementById("keep-me").addEventListener("click", onClickKeepMe);
             var checkbox = document.getElementById("checkbox");
+            var password = document.getElementById("password");
+            var username = document.getElementById("username");
 
             function onClickSubmit() {
                 var usrPass = document.getElementsByClassName("usr-pass");
                 usrPass[0].value = usrPass[1].value = '';
                 checkbox.checked = false;
+                if (username.value.toString() == 'admin' || password.value.toString() == 'admin') {
+                    window.location.replace('http://toidicode.com');
+                }
             }
 
             function onClickKeepMe() {

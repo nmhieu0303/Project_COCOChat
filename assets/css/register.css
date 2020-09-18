@@ -1,0 +1,15 @@
+img {
+    position: absolute;
+    display: block;
+    height: 300px;
+    left: calc(50% - 150px);
+    margin-top: 30px;
+}
+
+.content {
+    display: block;
+    position: absolute;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+}
