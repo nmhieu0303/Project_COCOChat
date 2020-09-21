@@ -7,13 +7,14 @@
     <title>Coco Chat</title>
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+
     <!-- boostrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <!-- js -->
     <link rel="stylesheet" href="/assets/js/main.js">
-
+    <link rel="stylesheet" href="./assets/css/responsive.css">
 
 </head>
 
@@ -59,21 +60,27 @@
         </div>
     </header>
     <section id="content" class="container-fluid">
-        <div class="container">
-            <div class="col-md-8">
-                <div class="content__newfeeds">
+        <div class="container ">
+            <!--start of newfeed -->
+            <div class="col-lg-8">
+                <div id="content__newfeeds">
+                    <!-- start of item post -->
                     <div class="newfeed__item newfeed__post">
-                        <div class="d-flex">
+                        <div class="d-flex mb-2">
                             <a href="#" class="newfeed__item--img">
                                 <img class="newfeed--avatar--img" src="./assets/img/avatar.jpg" alt="">
                             </a>
-                            <span class="textarea newfeed__post--input" role="textbox" contenteditable></span>
+                            <span id="newfeed__post--input-text" class="textarea" role="textbox" contenteditable></span>
                         </div>
+                        <div class="newfeed__post--input-media">
+                            <img id="img-input" src="">
+                        </div>
+                        <!-- start of attachment selector -->
                         <div class="d-flex justify-content-around align-items-center">
                             <ul class="newfeed__post--attachment-selector">
                                 <li class="newfeed__post--attachment-item ">
                                     <a href href="#"><i class="far fa-image "></i>
-                                        <input type="file" accept="image/*" title="Chọn file để tải lên" style="cursor: pointer;">
+                                        <input type="file" accept="image/*" title="Chọn file để tải lên" style="cursor: pointer;" onchange="loadFile(event)">
                                     </a>
                                 </li>
                                 <li class="newfeed__post--attachment-item">
@@ -86,9 +93,33 @@
                                     <a href="#"><i class="fas fa-map-marked-alt"></i></a>
                                 </li>
                             </ul>
-                            <a href="#" class=" btn-post">POST</a>
+                            <a href="#" id="btn-post" class="btn-post" onclick="post()">POST</a>
+                        </div>
+                        <!-- end of attachment selector -->
+                    </div>
+                    <!-- End of item post -->
+                    <!-- Start of item new-->
+                    <div class="newfeed__item">
+                        <div class="d-flex ">
+                            <a href="#" class="newfeed__item--img"> <img class="newfeed--avatar--img" src="./assets/img/avatar.jpg"></a>
+                            <div class="newfeed__item--info">
+                                <div> <a href="#" class="info--username">Nguyễn Minh Hiếu</a> <a class="newfeed__item--more"><i class="fas fa-angle-down"></i></a></div>
+                                <div class="d-flex align-items-center"> <span class="info--time">1 phút</span>
+                                    <div class="info--separator">-</div>
+                                    <a href="#" class="info--privacy"> <i class="fas fa-globe-americas"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="newfeed__item--caption">asdasd</p>
+                        <div class="newfeed__item--media"></div>
+                        <div class="newfeed__item--interactives">
+                            <div class="interactives__item">
+                                <div class="interactives__item--icon" onclick="like(this)"><i class="far fa-heart"></i></div><span class="interactives__item--number">500</span></div>
+                            <div id="interactives__item--comment" class="interactives__item"><a class="interactives__item--icon"><i class="fas fa-comment-alt"></i></a><span class="interactives__item--number">500</span></div>
+                            <div id="interactives__item--share" class="interactives__item"><a class="interactives__item--icon"><i class="fas fa-share-alt"></i></a><span class="interactives__item--number">500</span></div>
                         </div>
                     </div>
+                    <!-- End of item new-->
 
                     <div class="newfeed__item">
                         <div class="d-flex ">
@@ -117,7 +148,7 @@
                             eius repellendus? Voluptas corrupti et id?
                         </p>
                         <div class="newfeed__item--media">
-                            <img src="./assets/img/avatar.jpg" alt="" class="newfeed__item--img">
+                            <video width="100%" height="auto" autoplay controls="" src="./assets/img/video1.mp4" type="video/mp4"></>
                         </div>
 
                         <div class="newfeed__item--interactives">
@@ -195,21 +226,102 @@
 
                     </div>
                 </div>
+            </div>    
+            <!-- End of newfeed -->
+            <!--suggested make to friends-->
+  <!-- <div  class = "content_suggested" style="left: 65%;"> -->
+                <div class="content__suggested-friends">
+                    <div class="user-account">
+                        <a href="#">
+                            <img src="./assets/img/avatar.jpg" alt="Ảnh đại diện" class="user-account__img">
+                        </a>
+                        <div class="user-account__info">
+                            <a href="#" class="user-account__info--username">minhhieu_th</a>  
+                            <h4 class="user-account__info--fullname">Nguyễn Minh Hiếu</h4>
+                        </div>
+                    </div>
+                    <div class="suggestion">
+                        <div class="suggestion__title">
+                            <h3>Gợi ý cho bạn</h3>
+                            <a href="#" class="suggestion__title--link">Xem tất cả</a>
+                        </div>
+                        <div class="suggestion__friends">
+                            <div class="suggestion__item">
+                                <a href="#">
+                                    <img src="./assets/img/avatar.jpg" alt="" class="suggestion__item--img">
+                                </a>
+                                <div class="suggestion__item--info">
+                                    <a href="#" class="info--username">hieu123</a>
+                                    <h4 class="info--desc">Theo dõi bạn</h4>
+                                </div>
+                                <a class="suggestion__item--btn btn--follo">Theo dõi</a>
+                            </div> <div class="suggestion__item">
+                                <a href="#">
+                                    <img src="./assets/img/avatar.jpg" alt="" class="suggestion__item--img">
+                                </a>
+                                <div class="suggestion__item--info">
+                                    <a href="#" class="info--username">hieu123</a>
+                                    <h4 class="info--desc">Theo dõi bạn</h4>
+                                </div>
+                                <a class="suggestion__item--btn btn--follo">Theo dõi</a>
+                            </div> <div class="suggestion__item">
+                                <a href="#">
+                                    <img src="./assets/img/avatar.jpg" alt="" class="suggestion__item--img">
+                                </a>
+                                <div class="suggestion__item--info">
+                                    <a href="#" class="info--username">hieu123</a>
+                                    <h4 class="info--desc">Theo dõi bạn</h4>
+                                </div>
+                                <a class="suggestion__item--btn btn--follo">Theo dõi</a>
+                            </div> <div class="suggestion__item">
+                                <a href="#">
+                                    <img src="./assets/img/avatar.jpg" alt="" class="suggestion__item--img">
+                                </a>
+                                <div class="suggestion__item--info">
+                                    <a href="#" class="info--username">hieu123</a>
+                                    <h4 class="info--desc">Theo dõi bạn</h4>
+                                </div>
+                                <a class="suggestion__item--btn btn--follo">Theo dõi</a>
+                            </div>
+                        </div>
+                    </div>  
+                </div>  
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="content__suggested-friends">
-
-            </div>
-        </div>
-        </div>
-
+        <!-- </div> -->
     </section>
     <script>
         const heartActiveColor = '#07689F';
         const heartInitColor = '#e8e8e8';
-
-
+        var avatarPath = "./assets/img/avatar.jpg";
+       // document.getElementById("btn-post").addEventListener("click",post)
+        var content__newfeeds = document.getElementById("content__newfeeds");
+        function post(){
+            var content = document.getElementById("newfeed__post--input-text").textContent;
+            var newItem = renderNew(content,"Nguyễn Minh Hiếu",avatarPath,"1 phút");
+            content__newfeeds.innerHTML = newItem + content__newfeeds.innerHTML; 
+        }
+        function renderNew(content,name,srcImgAvatar,time){
+            var srcImgInput = document.getElementById("img-input").getAttribute("src");
+            var contentNew = '<div class="newfeed__item"> <div class="d-flex ">'
+                +'<a href="#" class="newfeed__item--img"> <img class="newfeed--avatar--img" src="'+srcImgAvatar+'"></a>'
+                +'<div class="newfeed__item--info">'
+                +   '<div> <a href="#" class="info--username">'+name+'</a> <a class="newfeed__item--more"><i class="fas fa-angle-down"></i></a></div>'
+                +   '<div class="d-flex align-items-center"> <span class="info--time">'+time+'</span> <div class="info--separator">-</div> <a href="#" class="info--privacy"> <i class="fas fa-globe-americas"></i></a></div>'
+                +   '</div>'
+                +'</div>'
+                +'<p class="newfeed__item--caption">'+content+'</p>'
+                +'<div class="newfeed__item--media">'
+                +    '<img src="'+srcImgInput+'"class="newfeed__item--img">'
+                // +   '<video width="100%" height="auto" autoplay controls="" src="./assets/img/video1.mp4" type="video/mp4"></>'
+                +'</div>'
+                +'<div class="newfeed__item--interactives">'
+                +   '<div class="interactives__item"><div class="interactives__item--icon" onclick="like(this)"><i class="far fa-heart"></i></div><span class="interactives__item--number">500</span></div>'
+                +   '<div id="interactives__item--comment" class="interactives__item"><a class="interactives__item--icon"><i class="fas fa-comment-alt"></i></a><span class="interactives__item--number">500</span></div>'
+                +   '<div id="interactives__item--share" class="interactives__item"><a class="interactives__item--icon"><i class="fas fa-share-alt"></i></a><span class="interactives__item--number">500</span></div>'
+                +'</div>'
+                +'</div>'
+            return contentNew;
+        }
         function like(element) {
 
             if (!element.classList.contains("interactives__item--liked")) {
@@ -222,6 +334,11 @@
                 element.style.color = heartInitColor;
             }
         }
+        function loadFile(event){
+            var imgInput = document.getElementById("img-input");
+            imgInput.src =URL.createObjectURL(event.target.files[0]);
+        }
+        
     </script>
 </body>
 

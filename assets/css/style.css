@@ -295,7 +295,11 @@
             margin-top: 4.43rem;
         }
         
-        .content__newfeeds {
+        #content .container {
+            position: relative;
+        }
+        
+        #content__newfeeds {
             padding: 1rem 1rem 0;
         }
         
@@ -317,14 +321,24 @@
             transform: translate(-50%, -15%);
         }
         
-        .content__newfeeds .newfeed--avatar--img {
+        #content__newfeeds .newfeed--avatar--img {
             width: 2.8rem;
             height: 2.8rem;
             border: 2px solid var(--primary-color);
             border-radius: 50%;
         }
         
-        .newfeed__post--input {
+        .newfeed__post #img-input {
+            display: block;
+            margin: 0 auto;
+            max-height: 9rem;
+        }
+        
+        .newfeed__post--input-media {
+            width: 100%;
+        }
+        
+        #newfeed__post--input-text {
             flex: 1;
             padding-right: 3%;
             margin-left: 1.2rem;
@@ -332,7 +346,7 @@
             outline: none;
         }
         
-        .newfeed__post--input:empty::before {
+        #newfeed__post--input-text:empty::before {
             content: "Hello Jonny, how are you today?";
         }
         
@@ -436,15 +450,6 @@
             transition: 0.4s;
         }
         
-        .interactives__item a:hover i {
-            color: var(--black-color);
-        }
-        
-        .interactives__item--icon:active .liked {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
         .interactives__item--icon {
             color: var(--primary-gray-color);
         }
@@ -458,7 +463,86 @@
             margin-right: 0.5rem;
         }
         
-        .interactives__item--icon .liked {
-            margin-left: -13%;
-            transition: all 0.4s;
+        .interactives__item--icon:hover i {
+            color: var(--blackblue-color);
+        }
+        /* ============== SUGGESTION MAKE TO FRIEND SECTION =============== */
+        
+        .content__suggested-friends {
+            position: fixed;
+            top: 8rem;
+            left: 64%;
+            max-width: 18.4rem;
+            width: 100%;
+        }
+        
+        .user-account {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            margin-bottom: 0.6rem;
+        }
+        
+        .content__suggested-friends .user-account__img {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+        }
+        
+        .content__suggested-friends .user-account__info,
+        .suggestion__item--info {
+            margin-left: 0.7rem;
+        }
+        
+        .content__suggested-friends .user-account__info--username,
+        .suggestion__item .info--username {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--primary-text-color);
+        }
+        
+        .content__suggested-friends .user-account__info--fullname,
+        .suggestion__item .info--desc {
+            font-size: 0.8rem;
+            font-weight: normal;
+            color: var(--secondary-text-color);
+        }
+        
+        .content__suggested-friends .suggestion__title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        .content__suggested-friends .suggestion__title h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        .suggestion__title .suggestion__title--link {
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .content__suggested-friends .suggestion__item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+        }
+        
+        .content__suggested-friends .suggestion__item--info {
+            flex: 1;
+        }
+        
+        .content__suggested-friends .suggestion__item--img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+        }
+        
+        .content__suggested-friends .suggestion__item--btn.btn--follo {
+            font-size: 0.8rem;
+            font-weight: bold;
         }
